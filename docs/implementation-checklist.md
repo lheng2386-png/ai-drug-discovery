@@ -20,8 +20,9 @@
 - [ ] 在 NVIDIA 云端下载 checkpoint 并完成 TargetDiff 生成 smoke test
 - [x] 固定 DecompDiff 代码/环境并通过 EGFR pocket 静态格式检查
 - [ ] 构建 EGFR reference-ligand/AlphaSpace 分解输入并完成云端 smoke test
-- [ ] 配置 docking 工具
-- [ ] 配置 ADMET 评价工具
+- [x] 配置 Vina/Meeko docking 环境并通过导入检查
+- [ ] 完成 EGFR 共晶配体 redocking 验证
+- [x] 配置 PoseBusters/ADMET-AI 并完成已知配体 smoke test
 
 ## 约定产出
 

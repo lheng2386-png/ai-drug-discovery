@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-07-09T09:59:25.423907+00:00",
+  "input": "data/ligands/egfr_known_ligands.csv",
+  "output": "results/evaluation/egfr_known_ligands_smoke.csv",
+  "molecule_count": 8,
+  "molecule_names": [
+    "ERLOTINIB",
+    "GEFITINIB",
+    "AFATINIB",
+    "OSIMERTINIB",
+    "LAPATINIB",
+    "NERATINIB",
+    "VANDETANIB",
+    "ABIVERTINIB"
+  ],
+  "rdkit_version": "2026.03.3",
+  "random_seed": 20260709,
+  "posebusters_config": "mol",
+  "admet_ai_version": "2.0.1",
+  "important_limitations": [
+    "ADMET-AI outputs are model predictions, not experimental measurements.",
+    "PoseBusters mol checks test molecular plausibility, not protein binding.",
+    "This smoke test does not run docking or estimate binding affinity."
+  ]
+}

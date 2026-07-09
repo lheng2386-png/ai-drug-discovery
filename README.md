@@ -47,9 +47,12 @@ EGFR 变体实验用于验证突变敏感性和选择性，但不能单独证明
 
 ## 当前状态
 
-- 已建立 PLINDER 小样本结构处理和 ESM-2 表征 smoke test；
+- 已建立 EGFR 序列、WT/突变结构、10 Å 口袋及 ChEMBL 已知配体数据；
+- 已完成 ESM-2、SaProt、Uni-Mol 与 8 个已知配体 ADMET/PoseBusters smoke test；
+- 已固定 TargetDiff/DecompDiff 代码版本并完成输入兼容性检查；
+- Vina/Meeko 环境已配置，但尚未完成共晶配体 redocking；
 - 尚未训练模型，尚未生成 EGFR 候选；
-- 下一步是完成 EGFR 数据清单和 TargetDiff 单口袋可复现基线；
+- 下一步是在 NVIDIA 云端完成 TargetDiff 单口袋生成与 EGFR redocking 基线；
 - 所有计算结果均视为计算预测，不替代实验亲和力、毒理或临床证据。
 
 ## 关键文档
@@ -59,5 +62,6 @@ EGFR 变体实验用于验证突变敏感性和选择性，但不能单独证明
 - [EGFR 数据准备规范](docs/egfr-data-plan.md)
 - [PLINDER 数据协议](docs/experiment-01-data-protocol.md)
 - [环境清单](environment/system_info.md)
+- [分子评价工具链](docs/evaluation-toolchain.md)
 - [风险清单](docs/risks.md)
 - [阅读清单](papers/reading_list.md)

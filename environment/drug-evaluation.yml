@@ -1,0 +1,17 @@
+name: drug-evaluation
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - boost-cpp
+  - libboost
+  - openbabel=3.1.1
+  - swig
+  - pip
+  - pip:
+      - admet-ai==2.0.1
+      - gemmi==0.7.5
+      - meeko==0.7.1
+      - posebusters==0.6.5
+      - vina==1.2.7
+
