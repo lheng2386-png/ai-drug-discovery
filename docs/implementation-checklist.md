@@ -3,19 +3,19 @@
 ## 数据与目录
 
 - [x] 建立本地项目仓库
-- [ ] 建立 `data/targets/egfr/`
-- [ ] 下载并核验 EGFR canonical sequence
-- [ ] 下载并核验 EGFR PDB/AlphaFold structures
-- [ ] 提取 EGFR binding pocket
-- [ ] 建立 `data/ligands/egfr_known_ligands.csv`
+- [x] 建立 `data/targets/egfr/`
+- [x] 下载并核验 EGFR canonical sequence
+- [x] 下载并核验首批 EGFR PDB/AlphaFold structures
+- [x] 提取首批 EGFR ligand-centred binding pockets
+- [x] 建立并审计 `data/ligands/egfr_known_ligands.csv`
 - [ ] 建立统一数据表及字段字典
 
 ## 工具环境
 
 - [x] 配置 RDKit 基础分析环境
 - [x] 完成 ESM-2 小样本 smoke test
-- [ ] 配置 SaProt
-- [ ] 配置 Uni-Mol
+- [x] 配置 SaProt 35M + Foldseek 并完成 EGFR smoke test
+- [x] 配置 Uni-Mol v1 84M 并完成 8 个 EGFR 配体 smoke test
 - [ ] 配置 TargetDiff
 - [ ] 配置 DecompDiff
 - [ ] 配置 docking 工具

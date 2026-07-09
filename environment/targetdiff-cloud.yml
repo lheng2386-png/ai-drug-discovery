@@ -1,0 +1,24 @@
+name: targetdiff
+channels:
+  - pyg
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pytorch=1.13.1
+  - pytorch-cuda=11.6
+  - pyg=2.2.0
+  - rdkit=2022.03.2
+  - openbabel
+  - tensorboard
+  - pyyaml
+  - easydict
+  - python-lmdb
+  - pip
+  - pip:
+      - meeko==0.1.dev3
+      - scipy
+      - pdb2pqr
+      - vina==1.2.2
+

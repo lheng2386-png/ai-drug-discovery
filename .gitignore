@@ -11,6 +11,45 @@ data/processed/**
 # Model weights and generated embeddings
 checkpoints/**
 embeddings/**
+outputs/protein_embeddings/**
+outputs/molecule_embeddings/**
+
+# Reproducible target coordinate downloads
+data/targets/egfr/sequences/**
+data/targets/egfr/structures/**
+data/targets/egfr/metadata/**
+!data/targets/egfr/sequences/.gitkeep
+!data/targets/egfr/structures/.gitkeep
+!data/targets/egfr/metadata/.gitkeep
+data/pockets/**/*.pdb
+data/pockets/**/*.sdf
+!data/pockets/**/.gitkeep
+data/ligands/raw/**
+!data/ligands/raw/.gitkeep
+external/**
+!external/.gitkeep
+
+# Portable migration snapshot explicitly requested by the user.
+# Keep small EGFR inputs and smoke-test embeddings; model weights remain excluded.
+!data/targets/egfr/sequences/
+!data/targets/egfr/sequences/P00533.fasta
+!data/targets/egfr/structures/
+!data/targets/egfr/structures/*.pdb
+!data/targets/egfr/structures/*.cif
+!data/targets/egfr/metadata/
+!data/targets/egfr/metadata/*.json
+!data/pockets/egfr/*_pocket_10A.pdb
+!embeddings/
+!embeddings/esm2_t6_8M_UR50D/
+!embeddings/esm2_t6_8M_UR50D/sample-pooled-v0.1.npz
+!outputs/
+!outputs/protein_embeddings/
+!outputs/protein_embeddings/saprot_35m_af2/
+!outputs/protein_embeddings/saprot_35m_af2/4G5J_A.npz
+!outputs/molecule_embeddings/
+!outputs/molecule_embeddings/unimol_v1_84m/
+!outputs/molecule_embeddings/unimol_v1_84m/egfr_named_ligands_smoke.npz
+!outputs/molecule_embeddings/unimol_v1_84m/egfr_named_ligands_smoke.csv
 
 # Experiment outputs
 logs/**

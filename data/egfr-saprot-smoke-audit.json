@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-07-09T09:11:24.143644+00:00",
+  "status": "pass",
+  "model_id": "westlake-repl/SaProt_35M_AF2",
+  "model_revision": "316cd4017d29f4657b959365f24b57f1ee278912",
+  "input_structure": "data/targets/egfr/structures/4G5J.pdb",
+  "chain": "A",
+  "residue_count": 307,
+  "combined_token_count": 307,
+  "embedding_dimension": 480,
+  "residue_embedding_shape": [
+    307,
+    480
+  ],
+  "device": "mps",
+  "torch_version": "2.12.1",
+  "transformers_version": "5.13.0",
+  "foldseek_version": "10.941cd33",
+  "output": "outputs/protein_embeddings/saprot_35m_af2/4G5J_A.npz",
+  "limitations": [
+    "Smoke test only; no model training or benchmark claim.",
+    "Experimental PDB input is not pLDDT-masked.",
+    "The 35M checkpoint is for pipeline validation, not the final model choice."
+  ]
+}

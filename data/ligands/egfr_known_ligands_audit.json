@@ -1,0 +1,27 @@
+{
+  "retrieved_at": "2026-07-09T09:02:48.984719+00:00",
+  "source": "ChEMBL web services",
+  "target_chembl_id": "CHEMBL203",
+  "query": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_chembl_id=CHEMBL203&target_organism=Homo+sapiens&assay_type=B&standard_relation=%3D&standard_units=nM&pchembl_value__gte=6&data_validity_comment__isnull=true&potential_duplicate=0&limit=1000&offset=0",
+  "filters": {
+    "target_organism": "Homo sapiens",
+    "assay_type": "B",
+    "standard_relation": "=",
+    "standard_units": "nM",
+    "pchembl_value_min": 6,
+    "data_validity_comment": null,
+    "potential_duplicate": 0,
+    "allowed_standard_types": [
+      "IC50",
+      "Kd",
+      "Ki"
+    ]
+  },
+  "downloaded_activity_count": 13689,
+  "retained_activity_count": 13439,
+  "aggregated_row_count": 10437,
+  "unique_chemical_identity_count": 8298,
+  "invalid_smiles_count": 0,
+  "rdkit_version": "2026.03.3",
+  "aggregation": "one row per standardized InChIKey, normalized assay mutation set, and activity type; best and median exact nM measurements retained"
+}

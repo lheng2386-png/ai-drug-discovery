@@ -1,0 +1,21 @@
+{
+  "retrieved_at": "2026-07-09T08:54:21.742622+00:00",
+  "uniprot": {
+    "accession": "P00533",
+    "fasta_url": "https://rest.uniprot.org/uniprotkb/P00533.fasta",
+    "metadata_url": "https://rest.uniprot.org/uniprotkb/P00533.json",
+    "fasta_sha256": "684e2da1f3ef05d0ce90d0aefe9125c6f7e9cdcfeac27ae72ed35243b64a73e8"
+  },
+  "alphafold": {
+    "entry_id": "AF-P00533-F1",
+    "model_created_date": "2025-08-01T00:00:00Z",
+    "pdb_url": "https://alphafold.ebi.ac.uk/files/AF-P00533-F1-model_v6.pdb",
+    "pdb_sha256": "8b381730ae157a75f2fbc78043aff7b9e605a30420dfe749a56cd61f12125cb9"
+  },
+  "experimental_structures": [
+    "4G5J",
+    "2ITZ",
+    "2JIU",
+    "7VRA"
+  ]
+}
