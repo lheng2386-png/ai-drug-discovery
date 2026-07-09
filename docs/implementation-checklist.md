@@ -16,7 +16,8 @@
 - [x] 完成 ESM-2 小样本 smoke test
 - [x] 配置 SaProt 35M + Foldseek 并完成 EGFR smoke test
 - [x] 配置 Uni-Mol v1 84M 并完成 8 个 EGFR 配体 smoke test
-- [ ] 配置 TargetDiff
+- [x] 固定 TargetDiff 代码/环境并通过 4 个 EGFR 10 Å 输入兼容性检查
+- [ ] 在 NVIDIA 云端下载 checkpoint 并完成 TargetDiff 生成 smoke test
 - [ ] 配置 DecompDiff
 - [ ] 配置 docking 工具
 - [ ] 配置 ADMET 评价工具

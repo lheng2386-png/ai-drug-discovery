@@ -50,6 +50,18 @@ The pretrained checkpoint path in `configs/sampling.yml` must be set after the
 official checkpoint is downloaded. A successful environment import is not
 equivalent to a successful generation run.
 
+Repository scripts:
+
+- `scripts/validate_targetdiff_inputs.py`: checks all 10 Å EGFR pockets with
+  the pinned TargetDiff `PDBProtein` parser;
+- `scripts/cloud/setup_targetdiff.sh`: restores the pinned source and Conda
+  environment on Ubuntu;
+- `scripts/cloud/run_targetdiff_egfr_smoke.sh`: runs 10 samples from the WT
+  EGFR pocket after the official checkpoint is present.
+
+Local static validation passed for four pockets. This does not establish that
+the CUDA environment, checkpoint, reconstruction, or sampling pipeline works.
+
 ## Hardware decision
 
 Use Ubuntu x86_64 and an NVIDIA Ampere GPU for the first reproduction. RTX 3090
