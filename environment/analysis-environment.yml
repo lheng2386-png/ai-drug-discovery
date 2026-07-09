@@ -1,0 +1,15 @@
+name: drug-align-analysis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - rdkit
+  - pandas
+  - pyarrow
+  - biopython
+  - scipy
+  - pyyaml
+  - pytorch
+  - pip
+  - pip:
+      - fair-esm

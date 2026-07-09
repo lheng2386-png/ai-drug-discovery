@@ -1,0 +1,7 @@
+system_id,split,entry_pdb_id,cluster,system_pocket_UniProt,ligand_ccd_code,ligand_rdkit_canonical_smiles,ligand_molecular_weight,ligand_qed,system_num_pocket_residues
+3wik__1__1.A__1.B,train,3wik,c0,P68400,LCT,CC(=O)Nc1nnc(-c2ccc([N+](=O)[O-])cc2)s1,264.031711116,0.6755150018420149,20
+5wim__1__1.A__1.B,train,5wim,c0,O60674,35R,O=C(Nc1c[nH]nc1-c1nc2cc(CN3CCOCC3)ccc2[nH]1)NC1CC1,381.1913229760001,0.5406836414671592,24
+5wio__1__1.A__1.E,val,5wio,c219906,Q17U16,XXE,O=C(O)c1cc(-n2cccc2)ccn1,188.058577496,0.7777601230322239,16
+5wip__1__1.A__1.E,val,5wip,c120214,Q17U16,XXO,O=C(O)c1ccnc(-c2ccco2)c1,189.042593084,0.7846097916467414,20
+5wi0__2__1.B__1.D,test,5wi0,c6967,P43490,AQ1,CCCc1cc(=O)[nH]c(Nc2ccccc2F)n1,247.112090288,0.8726889182172157,21
+5wi1__2__1.B__1.E,test,5wi1,c6971,P43490,AOY,O=C1OCCC/C1=C\Nc1ccccc1,203.094628656,0.5918121974200251,18

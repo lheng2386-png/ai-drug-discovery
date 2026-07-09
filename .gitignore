@@ -1,0 +1,24 @@
+# Large or reproducible datasets
+data/raw/**
+data/interim/**
+data/processed/**
+!data/README.md
+!data/processed/
+data/processed/**
+!data/processed/sample-model-inputs-v0.1.csv
+!data/processed/sample-esm2-pooling-v0.1.csv
+
+# Model weights and generated embeddings
+checkpoints/**
+embeddings/**
+
+# Experiment outputs
+logs/**
+results/raw/**
+
+# Local environments and system files
+.venv/
+.conda/
+.DS_Store
+__pycache__/
+*.pyc
