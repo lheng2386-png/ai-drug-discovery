@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import importlib.util
 import json
@@ -14,26 +15,34 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "data" / "pockets" / "egfr" / "egfr_pocket_manifest.csv"
-TARGETDIFF_DATA = ROOT / "external" / "targetdiff" / "utils" / "data.py"
-AUDIT = ROOT / "data" / "targetdiff-egfr-input-audit.json"
-EXPECTED_COMMIT = "142f1eb7178480d435fe0b8cb95a99beb48997c7"
+BACKENDS = {
+    "targetdiff": {
+        "parser": ROOT / "external" / "targetdiff" / "utils" / "data.py",
+        "commit": "142f1eb7178480d435fe0b8cb95a99beb48997c7",
+    },
+    "decompdiff": {
+        "parser": ROOT / "external" / "decompdiff" / "utils" / "data.py",
+        "commit": "ed4e7d8202c077cc4bd1b9ca626e173c24007f2a",
+    },
+}
 STANDARD_RESIDUES = {
     "ALA", "ARG", "ASN", "ASP", "CYS", "GLN", "GLU", "GLY", "HIS", "ILE",
     "LEU", "LYS", "MET", "PHE", "PRO", "SER", "THR", "TRP", "TYR", "VAL",
 }
 
 
-def load_targetdiff_parser():
-    if not TARGETDIFF_DATA.exists():
+def load_parser(backend: str):
+    source = BACKENDS[backend]
+    parser_path = source["parser"]
+    if not parser_path.exists():
         raise RuntimeError(
-            "TargetDiff source is missing. Restore external/targetdiff at "
-            f"commit {EXPECTED_COMMIT}."
+            f"{backend} source is missing. Restore it at commit {source['commit']}."
         )
     if "long" not in np.__dict__:
         np.long = np.int64
     if "bool" not in np.__dict__:
         np.bool = np.bool_
-    spec = importlib.util.spec_from_file_location("targetdiff_utils_data", TARGETDIFF_DATA)
+    spec = importlib.util.spec_from_file_location(f"{backend}_utils_data", parser_path)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -69,7 +78,19 @@ def static_validate(path: Path) -> dict:
 
 
 def main() -> None:
-    parser = load_targetdiff_parser()
+    argument_parser = argparse.ArgumentParser()
+    argument_parser.add_argument(
+        "--backend", choices=sorted(BACKENDS), default="targetdiff"
+    )
+    args = argument_parser.parse_args()
+    parser = None
+    parser_error = None
+    try:
+        parser = load_parser(args.backend)
+    except ModuleNotFoundError as error:
+        if args.backend != "decompdiff":
+            raise
+        parser_error = f"{type(error).__name__}: {error}"
     with MANIFEST.open(encoding="utf-8") as handle:
         rows = [
             row for row in csv.DictReader(handle)
@@ -79,30 +100,41 @@ def main() -> None:
     for row in rows:
         path = MANIFEST.parent / row["pocket_file"]
         static = static_validate(path)
-        parsed = parser(str(path)).to_dict_atom()
-        if parsed["pos"].shape != (static["atom_count"], 3):
-            raise RuntimeError(f"TargetDiff parser shape mismatch for {path}")
-        results.append(
-            {
-                "pdb_id": row["pdb_id"],
-                "variant": row["variant"],
-                "path": str(path.relative_to(ROOT)),
-                **static,
-                "targetdiff_position_shape": list(parsed["pos"].shape),
-                "targetdiff_feature_count": int(parsed["element"].shape[0]),
-            }
-        )
+        result = {
+            "pdb_id": row["pdb_id"],
+            "variant": row["variant"],
+            "path": str(path.relative_to(ROOT)),
+            **static,
+        }
+        if parser is not None:
+            parsed = parser(str(path)).to_dict_atom()
+            if parsed["pos"].shape != (static["atom_count"], 3):
+                raise RuntimeError(f"{args.backend} parser shape mismatch for {path}")
+            result.update(
+                {
+                    "backend_position_shape": list(parsed["pos"].shape),
+                    "backend_feature_count": int(parsed["element"].shape[0]),
+                }
+            )
+        results.append(result)
 
     audit = {
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "status": "pass",
-        "targetdiff_commit": EXPECTED_COMMIT,
+        "status": "pass" if parser is not None else "static_only",
+        "backend": args.backend,
+        "source_commit": BACKENDS[args.backend]["commit"],
         "radius_angstrom": 10.0,
         "validated_pocket_count": len(results),
+        "backend_parser_executed": parser is not None,
+        "backend_parser_error": parser_error,
         "pockets": results,
-        "scope": "Static input compatibility only; no checkpoint or generation run.",
+        "scope": (
+            "Protein-pocket format validation only; no decomposition metadata, "
+            "checkpoint, or generation run."
+        ),
     }
-    AUDIT.write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
+    audit_path = ROOT / "data" / f"{args.backend}-egfr-input-audit.json"
+    audit_path.write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(audit, indent=2))
 
 

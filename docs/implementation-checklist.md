@@ -18,7 +18,8 @@
 - [x] 配置 Uni-Mol v1 84M 并完成 8 个 EGFR 配体 smoke test
 - [x] 固定 TargetDiff 代码/环境并通过 4 个 EGFR 10 Å 输入兼容性检查
 - [ ] 在 NVIDIA 云端下载 checkpoint 并完成 TargetDiff 生成 smoke test
-- [ ] 配置 DecompDiff
+- [x] 固定 DecompDiff 代码/环境并通过 EGFR pocket 静态格式检查
+- [ ] 构建 EGFR reference-ligand/AlphaSpace 分解输入并完成云端 smoke test
 - [ ] 配置 docking 工具
 - [ ] 配置 ADMET 评价工具
 

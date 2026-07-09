@@ -1,12 +1,12 @@
 {
-  "created_at": "2026-07-09T09:44:47.739810+00:00",
-  "status": "pass",
-  "backend": "targetdiff",
-  "source_commit": "142f1eb7178480d435fe0b8cb95a99beb48997c7",
+  "created_at": "2026-07-09T09:44:51.122465+00:00",
+  "status": "static_only",
+  "backend": "decompdiff",
+  "source_commit": "ed4e7d8202c077cc4bd1b9ca626e173c24007f2a",
   "radius_angstrom": 10.0,
   "validated_pocket_count": 4,
-  "backend_parser_executed": true,
-  "backend_parser_error": null,
+  "backend_parser_executed": false,
+  "backend_parser_error": "ModuleNotFoundError: No module named 'torch_geometric'",
   "pockets": [
     {
       "pdb_id": "4G5J",
@@ -26,12 +26,7 @@
         64.314,
         22.546,
         -4.858
-      ],
-      "backend_position_shape": [
-        572,
-        3
-      ],
-      "backend_feature_count": 572
+      ]
     },
     {
       "pdb_id": "2ITZ",
@@ -51,12 +46,7 @@
         -39.467,
         14.466,
         -7.776
-      ],
-      "backend_position_shape": [
-        551,
-        3
-      ],
-      "backend_feature_count": 551
+      ]
     },
     {
       "pdb_id": "2JIU",
@@ -76,12 +66,7 @@
         5.933,
         36.201,
         49.8
-      ],
-      "backend_position_shape": [
-        514,
-        3
-      ],
-      "backend_feature_count": 514
+      ]
     },
     {
       "pdb_id": "7VRA",
@@ -101,12 +86,7 @@
         66.687,
         14.538,
         -4.878
-      ],
-      "backend_position_shape": [
-        528,
-        3
-      ],
-      "backend_feature_count": 528
+      ]
     }
   ],
   "scope": "Protein-pocket format validation only; no decomposition metadata, checkpoint, or generation run."

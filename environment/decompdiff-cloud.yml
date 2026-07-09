@@ -1,4 +1,4 @@
-name: targetdiff
+name: decompdiff
 channels:
   - pyg
   - pytorch
@@ -12,12 +12,14 @@ dependencies:
   - pyg=2.2.0
   - rdkit=2022.03.2
   - openbabel
+  - mdtraj
   - tensorboard
   - pyyaml
   - easydict
   - python-lmdb
   - pip
   - pip:
+      - alphaspace2
       - meeko==0.1.dev3
       - scipy
       - pdb2pqr
