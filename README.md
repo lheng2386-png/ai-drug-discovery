@@ -51,6 +51,7 @@ EGFR 变体实验用于验证突变敏感性和选择性，但不能单独证明
 - 已完成 ESM-2、SaProt、Uni-Mol 与 8 个已知配体 ADMET/PoseBusters smoke test；
 - 已固定 TargetDiff/DecompDiff 代码版本并完成输入兼容性检查；
 - 已建立第一版 target-conditioned 统一数据表：4 个 EGFR 10 Å 口袋 × 8 个已知配体 = 32 条评价记录；
+- 已建立第一次 EGFR 候选分子生成操作单、TargetDiff/DecompDiff 云端 inference 入口和 RDKit 后处理脚本；
 - Vina/Meeko 环境已配置，但尚未完成共晶配体 redocking；
 - 尚未训练模型，尚未生成 EGFR 候选；
 - 下一步是在 NVIDIA 云端完成 TargetDiff 单口袋生成与 EGFR redocking 基线；
@@ -65,5 +66,6 @@ EGFR 变体实验用于验证突变敏感性和选择性，但不能单独证明
 - [环境清单](environment/system_info.md)
 - [分子评价工具链](docs/evaluation-toolchain.md)
 - [统一数据表字段字典](docs/unified-data-schema.md)
+- [第一次 EGFR 候选分子生成操作单](docs/first-generation-runbook.md)
 - [风险清单](docs/risks.md)
 - [阅读清单](papers/reading_list.md)

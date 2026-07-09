@@ -17,8 +17,10 @@
 - [x] 配置 SaProt 35M + Foldseek 并完成 EGFR smoke test
 - [x] 配置 Uni-Mol v1 84M 并完成 8 个 EGFR 配体 smoke test
 - [x] 固定 TargetDiff 代码/环境并通过 4 个 EGFR 10 Å 输入兼容性检查
+- [x] 建立 TargetDiff EGFR 批量 inference 与后处理脚本
 - [ ] 在 NVIDIA 云端下载 checkpoint 并完成 TargetDiff 生成 smoke test
 - [x] 固定 DecompDiff 代码/环境并通过 EGFR pocket 静态格式检查
+- [x] 建立 DecompDiff 官方 indexed-dataset inference 入口脚本
 - [ ] 构建 EGFR reference-ligand/AlphaSpace 分解输入并完成云端 smoke test
 - [x] 配置 Vina/Meeko docking 环境并通过导入检查
 - [ ] 完成 EGFR 共晶配体 redocking 验证
@@ -50,3 +52,20 @@ outputs/
 - 构建脚本：`scripts/build_unified_egfr_table.py`
 
 当前采用“一个靶点条件/口袋 × 一个候选分子 = 一行”的设计。4 个 EGFR 10 Å 口袋 × 8 个已知 EGFR 抑制剂 smoke set = 32 行。PLI、docking、SA、diversity、novelty 与 Pareto 字段先预留，后续实验逐步填入。
+
+## 第一次生成候选分子
+
+- 操作单：`docs/first-generation-runbook.md`
+- TargetDiff 批量生成脚本：`scripts/cloud/run_targetdiff_egfr_generation.sh`
+- DecompDiff 官方入口脚本：`scripts/cloud/run_decompdiff_egfr_generation.sh`
+- 后处理脚本：`scripts/postprocess_generated_ligands.py`
+
+目标产出：
+
+```text
+results/generation/egfr_first_batch/generated_egfr_candidates.sdf
+results/generation/egfr_first_batch/generated_egfr_candidates.csv
+results/generation/egfr_first_batch/basic_properties.csv
+```
+
+当前状态：已准备云端运行与后处理流程，尚未在 NVIDIA GPU 上执行真实 TargetDiff/DecompDiff inference。

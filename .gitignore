@@ -54,6 +54,8 @@ external/**
 # Experiment outputs
 logs/**
 results/raw/**
+results/generation/raw/**
+results/generation/smoke/**
 
 # Local environments and system files
 .venv/
