@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-07-09T15:18:34+00:00",
+  "script": "scripts/build_unified_egfr_table.py",
+  "output_csv": "data/unified/egfr_known_ligands_unified_v0.1.csv",
+  "row_count": 32,
+  "column_count": 210,
+  "target_condition_count": 4,
+  "molecule_count": 8,
+  "target_variants": [
+    "L858R",
+    "T790M",
+    "T790M/C797S",
+    "WT"
+  ],
+  "molecule_chembl_ids": [
+    "CHEMBL1173655",
+    "CHEMBL180022",
+    "CHEMBL24828",
+    "CHEMBL3353410",
+    "CHEMBL4297865",
+    "CHEMBL553",
+    "CHEMBL554",
+    "CHEMBL939"
+  ],
+  "source_files": {
+    "data/pockets/egfr/egfr_pocket_manifest.csv": "c03dc62fac757ad68874687ee595ba5135f5e3e9286c971b6ba38003e28bd9a4",
+    "data/targets/egfr/egfr_structure_manifest.csv": "4cbd3b61b15d6b72765585bd2ddeb8363666182b1b2559bbfd1a11809aecee89",
+    "data/ligands/egfr_known_ligands.csv": "e389638ee294dfa48d702fbc91810d5031ac0f2aa88fd958b886bdefe6224cf1",
+    "results/evaluation/egfr_known_ligands_smoke.csv": "51177f2ff7c42584b868c882e66ba8066328ffb6e6d049a744e7e29a5203a0bb"
+  },
+  "output_sha256": "1a5eb9efc14766a8855d9e67d5e8ec45b8b545bb0c4b8897c4a12580597a06b8",
+  "design_note": "One row equals one target-conditioned candidate: EGFR pocket condition x molecule.",
+  "pending_fields": [
+    "sa_score",
+    "pli_score",
+    "docking_score_vina_kcal_mol",
+    "diversity_cluster_id",
+    "novelty_max_train_similarity",
+    "pareto_rank"
+  ]
+}

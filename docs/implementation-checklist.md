@@ -8,7 +8,7 @@
 - [x] 下载并核验首批 EGFR PDB/AlphaFold structures
 - [x] 提取首批 EGFR ligand-centred binding pockets
 - [x] 建立并审计 `data/ligands/egfr_known_ligands.csv`
-- [ ] 建立统一数据表及字段字典
+- [x] 建立统一数据表及字段字典
 
 ## 工具环境
 
@@ -41,3 +41,12 @@ outputs/
 ```
 
 原始结构、模型权重和生成 embeddings 默认不上传 GitHub；仓库只保存下载脚本、来源清单、轻量元数据和可复现实验配置。
+
+## 第 12 步统一表
+
+- 统一表：`data/unified/egfr_known_ligands_unified_v0.1.csv`
+- 审计文件：`data/unified/egfr_known_ligands_unified_v0.1.audit.json`
+- 字段字典：`docs/unified-data-schema.md`
+- 构建脚本：`scripts/build_unified_egfr_table.py`
+
+当前采用“一个靶点条件/口袋 × 一个候选分子 = 一行”的设计。4 个 EGFR 10 Å 口袋 × 8 个已知 EGFR 抑制剂 smoke set = 32 行。PLI、docking、SA、diversity、novelty 与 Pareto 字段先预留，后续实验逐步填入。
